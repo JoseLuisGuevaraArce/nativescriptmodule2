@@ -1,0 +1,17 @@
+<ActionBar [title]="topic?.topic"></ActionBar>
+
+<StackLayout class="page__content">
+  <button text="Back!" (tap)="back()"></button>
+  <Label text="Long Press the Boxes!"></Label>
+  <PullToRefresh (refresh)="refreshList($event)">
+    <ListView class="list-group" [items]="this.topic.details" style="height:100%;">
+      <ng-template let-x="item" let-idx="index">
+          <GridLayout columns="40, auto, *" rows="20, 40, 40" backgroundColor="#F6F1F1" (longPress)="onLongPress($event)">
+              <Image [src]="x.avatar" row="1" col="0" rowSpan="2" width="72" height="100" margin="9" veticalAlignment="top"/>
+              <Label [text]="x.user" col="2" row="1" horizontalAlignment="left" veticalAlignment="top" fontSize="14" margin="0"></Label>
+              <Label [text]="x.comment" row="2" col="2" colSpan="2" fontSize="12" margin="1"></Label>
+          </GridLayout>
+      </ng-template>
+    </ListView>
+  </PullToRefresh>
+</StackLayout>

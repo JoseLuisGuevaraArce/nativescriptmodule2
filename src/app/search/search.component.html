@@ -7,7 +7,21 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
+<StackLayout class="page__content" >
   <Label class="page__content-icon fas" text="&#xf002;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+
+  <SearchForm (search)="initSearch($event)"></SearchForm>
+
+  <ListView class="list-group" [items]="this.searchResults" (itemTap)="onItemTap($event)" style="height:1250px" backgroundColor="#F1F6F9">
+    <ng-template let-x="item" let-idx="index">
+      <FlexboxLayout flexDirection="row" class="list-group-item">
+        <Image [src]="x.image" stretch="none" class="thumb img-circle"></Image>
+        <Label [text]="x.topic" class="list-group-item-heading" verticalAlignment="center" style="width: 15%"></Label>
+        <Label [text]="x.category" class="list-group-item-heading" verticalAlignment="center" style="width: 25%"></Label>
+        <Label [text]="x.description" class="list-group-item-heading" verticalAlignment="center" style="width: 50%"></Label>
+        <Label class="fas" text="&#xf044;" (tap)="onEditItem($event, idx)" style="width: 10%"></Label>
+      </FlexboxLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>
+

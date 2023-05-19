@@ -5,9 +5,12 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 
+import { TopicsService } from './components/services/topics.service'
+
 @NgModule({
   bootstrap: [AppComponent],
   imports: [AppRoutingModule, NativeScriptModule, NativeScriptUISideDrawerModule],
+  providers: [TopicsService],
   declarations: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 })
