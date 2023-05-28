@@ -27,7 +27,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = +this.activatedRoute.snapshot.params.id;
     if (id) {
-      this.topic = this.tipicsService.getTopicById(id)
+      this.topic;
+      // this.topic = this.tipicsService.getTopicById(id)
     }
   }
 

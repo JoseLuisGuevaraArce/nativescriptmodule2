@@ -7,7 +7,10 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf013;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="page__content" >
+  <Label text="Setting User" style="text-align: center;"></Label>
+  
+  <Label>Current User Name: {{userName}}</Label>
+
+  <SettingsForm (setting)="onPersistUserData($event)"></SettingsForm>
+</StackLayout>

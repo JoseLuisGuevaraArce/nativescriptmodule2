@@ -1,0 +1,20 @@
+<ActionBar class="action-bar">
+  <NavigationButton visibility="hidden"></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label class="action-bar-title" text="Favorites" colSpan="2"></Label>
+
+    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+  </GridLayout>
+</ActionBar>
+
+<!-- <GridLayout class="page__content">
+  <Label class="page__content-icon fas" text="&#xf005;"></Label>
+</GridLayout> -->
+
+<ListView class="list-group" [items]="this.local" style="height:1250px" backgroundColor="#F1F6F9">
+  <ng-template let-x="item" let-idx="index">
+    <FlexboxLayout flexDirection="row" class="list-group-item">
+      <Label [text]="x.name" class="list-group-item-heading" verticalAlignment="center"></Label>
+    </FlexboxLayout>
+  </ng-template>
+</ListView>
